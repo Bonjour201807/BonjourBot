@@ -9,6 +9,9 @@ class RunTask:
 
     def run(self, request):
         policy_result = self.policy_handle.ploicy(request)
+        if not policy_result:
+            print('再见')
+            return
 
         if policy_result['intent'] == 'weather':
             return self.exec_weather(policy_result)

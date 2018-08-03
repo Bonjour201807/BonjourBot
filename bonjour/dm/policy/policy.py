@@ -1,4 +1,5 @@
 import json
+import yaml
 import random
 
 from bonjour.dm.dst.dst import DST, redis_handle
@@ -9,26 +10,12 @@ class Policy:
         self.dst_handle = DST()
 
         # 临时方案，要改成配置文件
-        self.policy_tree = {
-            'weather': [
-                {'LOC': [
-                    '请问在哪儿呢？',
-                    '请问你想问哪儿的天气'
-                ]},
-                {'time': [
-                    '什么时候的呢？',
-                    '你想问什么时候的天气',
-                    '请告诉我查询的时间，谢谢tmd'
-                ]}
-            ]
-        }
+        self.policy_tree = yaml.load(open('/Users/pangyuming/Downloads/BonjourBot/data/intent/intent_questions.yaml'))
 
     def ploicy(self, request):
         self.dst_handle.dst(request)
         uid = request['uid']
-        uid_slot = '{}:slot'.format(uid)
         uid_intent = '{}:intent'.format(uid)
-
         for item in redis_handle.lrange(uid_intent, 0, -1):
             item = json.loads(item)
             if item['state'] == 1:
@@ -40,14 +27,14 @@ class Policy:
                             'tag': 1,
                             'intent': item['intent']}
                 else:
-                    for slot_dct in self.policy_tree[item['intent']]:
-                        for slot, questions in slot_dct.items():
-                            if slot in is_has_none:
-                                question = random.choice(questions)
-                                return {'answer': '',
-                                        'question': question,
-                                        'tag': 0,
-                                        'intent': item['intent']}
+                    slot_dct=self.policy_tree[item['intent']]
+                    for slot, questions in slot_dct.items():
+                        if slot in is_has_none:
+                            question = random.choice(questions)
+                            return {'answer': '',
+                                    'question': question,
+                                    'tag': 0,
+                                    'intent': item['intent']}
             else:
                 continue
 

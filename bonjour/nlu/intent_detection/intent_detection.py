@@ -3,7 +3,7 @@ import re
 
 
 class Intent:
-    def __init__(self, intent_path='./data/intent/intent.yaml'):
+    def __init__(self, intent_path='./data/intent/intent_trigger_word.yaml'):
         #临时方案
         self.rule_intent_map = {}
         with open(intent_path, encoding='utf8') as f:
@@ -26,5 +26,5 @@ class Intent:
 if __name__ == '__main__':
     import sys
     sys.path.append('/Users/dy/Desktop/back/InfoR/bonjour')
-    intent_haddle = Intent('/Users/dy/Desktop/back/InfoR/bonjour/data/intent/intent.yaml')
+    intent_haddle = Intent('/Users/pangyuming/Downloads/BonjourBot/data/intent/intent_trigger_word.yaml')
     print(intent_haddle.intent_recognition('我想出去玩'))

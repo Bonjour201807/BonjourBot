@@ -1,5 +1,6 @@
 import redis
 import json
+import yaml
 
 from collections import defaultdict
 from bonjour.nlu.nlu import NLU
@@ -10,24 +11,16 @@ redis_handle = redis.Redis(connection_pool=pool)
 
 class DST:
     # TODO 目前为临时方案，后面改成从配置文件读取
-    all_intent = {'weather':
-                      {'intent': 'weather',
-                       'slot': {'LOC':None,'time': None},
-                       'state': 0},
-                  'test_intent':
-                      {'intent': 'test_intent',
-                       'slot': {'slot1': None, 'slot2': None},
-                       'state': 0}
-                  }
 
     def __init__(self):
+        self.intent_structure = yaml.load(open('/Users/pangyuming/Downloads/BonjourBot/data/intent/intent_structure.yaml'))
         self.nlu_handle = NLU()
         self.slot_intent_map = self._slot_to_intent_map()
 
     def _slot_to_intent_map(self):
         slot2intent = defaultdict(list)
-        for intent in self.all_intent:
-            for slot in self.all_intent[intent]:
+        for intent in self.intent_structure:
+            for slot in self.intent_structure[intent]:
                 slot2intent[slot].append(intent)
         return slot2intent
 
@@ -38,7 +31,6 @@ class DST:
         :return:
         """
         intent_slot = self.nlu_handle.nlu(request['query'])
-        print('intent_slot...', intent_slot)
         uid = request['uid']
         uid_slot = '{}:slot'.format(uid)
         uid_intent = '{}:intent'.format(uid)
@@ -54,7 +46,7 @@ class DST:
         redis_handle.lpush(uid_slot, json.dumps(latest_slots))
 
         if intent_slot['intent']:
-            redis_handle.lpush(uid_intent, json.dumps(self.all_intent[intent_slot['intent']]))
+            redis_handle.lpush(uid_intent, json.dumps(self.intent_structure[intent_slot['intent']]))
 
         new_added_slot = list(intent_slot['slot'].keys())
         for i, item in enumerate(redis_handle.lrange(uid_intent, 0, -1)):

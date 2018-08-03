@@ -59,7 +59,4 @@ class Agent():
             else:
                 return dct
         return tmp
-    #
-    # def recorder(self):
-    #     pass
 

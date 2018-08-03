@@ -74,7 +74,7 @@ class LTP:
                 ner_tmp = []
         if ner_tmp:
             tag = list(nertags)[-1]
-            tag = tag = tag.split('-')[-1]
+            tag = tag.split('-')[-1]
             ner_dict[tag].append(''.join(ner_tmp))
 
         ner_map = dict()
