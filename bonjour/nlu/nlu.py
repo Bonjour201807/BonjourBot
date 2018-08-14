@@ -1,3 +1,9 @@
+"""
+@Author: yangdu
+@Time: 2018/8/4 下午5:27
+@Software: PyCharm
+"""
+
 from bonjour.nlu.slot_filling.slot_filling import SlotFilling
 from bonjour.nlu.intent_detection.intent_detection import Intent
 

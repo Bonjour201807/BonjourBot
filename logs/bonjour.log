@@ -1,0 +1,526 @@
+[2018-08-13 19:40:25][app][ERROR]: im from log1
+[2018-08-13 19:40:59][app][DEBUG]: im test log level
+[2018-08-13 19:40:59][app][ERROR]: im from log1[2018-08-13 20:44:11][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-13 20:46:06][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-13 20:55:41][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 20:55:41] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 404 -
+[2018-08-13 21:02:31][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-13 21:03:14][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:03:14] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 404 -
+[2018-08-13 21:14:34][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-13 21:14:39][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:14:39] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 404 -
+[2018-08-13 21:15:18][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-13 21:15:25][flask.app][ERROR]: Exception on /v1/api/chatmessage/ [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/flask/app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/werkzeug/wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/werkzeug/test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'dict' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/flask/app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/flask/app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/flask/app.py", line 1982, in make_response
+    reraise(TypeError, new_error, sys.exc_info()[2])
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/flask/_compat.py", line 34, in reraise
+    raise value.with_traceback(tb)
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/flask/app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/werkzeug/wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/werkzeug/wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/home/ubuntu/envt/lib/python3.5/site-packages/werkzeug/test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'dict' object is not callable
+The view function did not return a valid response. The return type must be a string, tuple, Response instance, or WSGI callable, but it was a dict.
+[2018-08-13 21:15:25][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:15:25] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:18:33][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-13 21:18:33][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:18:34][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:18:34][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:18:41][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:18:41] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:20:16][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour_server.py', reloading
+[2018-08-13 21:20:16][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:20:16][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:20:16][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:20:30][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:20:30] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:22:02][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour_server.py', reloading
+[2018-08-13 21:22:02][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:22:02][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:22:02][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:22:05][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"你好\\n"}')])
+[2018-08-13 21:22:06][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:22:06] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E4%BD%A0%E5%A5%BD%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:23:35][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour_server.py', reloading
+[2018-08-13 21:23:35][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:23:36][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:23:36][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:23:42][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气"}')])
+[2018-08-13 21:23:42][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气'}}
+[2018-08-13 21:23:43][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:23:43] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:24:10][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour_server.py', reloading
+[2018-08-13 21:24:10][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:24:10][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:24:10][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:26:31][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/agent/agent.py', reloading
+[2018-08-13 21:26:32][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:26:32][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:26:32][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:29:10][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/agent/run_task.py', reloading
+[2018-08-13 21:29:10][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:29:11][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:29:11][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:29:20][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气\\n"}')])
+[2018-08-13 21:29:20][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气\n'}}
+[2018-08-13 21:29:21][app][DEBUG]: plolicy_result,{'question': '请问你想问哪儿的天气', 'tag': 0, 'answer': '', 'intent': 'weather'}
+[2018-08-13 21:29:21][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:29:21] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:31:02][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/agent/run_task.py', reloading
+[2018-08-13 21:31:02][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:31:02][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:31:02][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:33:16][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/agent/agent.py', reloading
+[2018-08-13 21:33:16][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:34:11][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-13 21:34:11][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:34:12][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:34:12][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:34:20][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('user_flag', '0'), ('uid', '123')])
+[2018-08-13 21:34:20][app][DEBUG]: {'message': {'query': '天气\n'}, 'user_flag': 0, 'uid': 123}
+[2018-08-13 21:34:20][app][DEBUG]: plolicy_result,{'question': '请问你想问哪儿的天气', 'intent': 'weather', 'answer': '', 'tag': 0}
+[2018-08-13 21:34:20][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问你想问哪儿的天气'}), 'flag': 0}
+[2018-08-13 21:34:21][app][DEBUG]: plolicy_result,{'question': '请问你想问哪儿的天气', 'intent': 'weather', 'answer': '', 'tag': 0}
+[2018-08-13 21:34:21][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:34:21] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:34:50][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/agent/agent.py', reloading
+[2018-08-13 21:34:50][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:34:50][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:34:50][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:35:29][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour_server.py', reloading
+[2018-08-13 21:35:29][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:35:29][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:35:29][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:35:34][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-13 21:35:34][app][DEBUG]: {'message': {'query': '天气\n'}, 'user_flag': 0, 'uid': 123}
+[2018-08-13 21:35:35][app][DEBUG]: plolicy_result,{'intent': 'weather', 'question': '请问在哪儿呢？', 'answer': '', 'tag': 0}
+[2018-08-13 21:35:35][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-13 21:35:35][app][DEBUG]: plolicy_result,{'intent': 'weather', 'question': '请问在哪儿呢？', 'answer': '', 'tag': 0}
+[2018-08-13 21:35:35][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:35:35] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:35:41][app][INFO]: ImmutableMultiDict([('message', '{"query":"深圳\\n"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-13 21:35:41][app][DEBUG]: {'message': {'query': '深圳\n'}, 'user_flag': 0, 'uid': 123}
+[2018-08-13 21:35:42][app][DEBUG]: plolicy_result,{'intent': 'weather', 'question': '请问在哪儿呢？', 'answer': '', 'tag': 0}
+[2018-08-13 21:35:42][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-13 21:35:42][app][DEBUG]: plolicy_result,{'intent': 'weather', 'question': '请问你想问哪儿的天气', 'answer': '', 'tag': 0}
+[2018-08-13 21:35:42][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:35:42] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:35:56][app][INFO]: ImmutableMultiDict([('message', '{"query":"深圳呢"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-13 21:35:56][app][DEBUG]: {'message': {'query': '深圳呢'}, 'user_flag': 0, 'uid': 123}
+[2018-08-13 21:35:56][app][DEBUG]: plolicy_result,{'intent': 'weather', 'question': '你想问什么时候的天气', 'answer': '', 'tag': 0}
+[2018-08-13 21:35:56][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '你想问什么时候的天气'}), 'flag': 0}
+[2018-08-13 21:35:57][app][DEBUG]: plolicy_result,{'intent': 'weather', 'question': '请告诉我查询的时间，谢谢tmd', 'answer': '', 'tag': 0}
+[2018-08-13 21:35:57][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:35:57] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%E5%91%A2%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:36:05][app][INFO]: ImmutableMultiDict([('message', '{"query":"明天\\n"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-13 21:36:05][app][DEBUG]: {'message': {'query': '明天\n'}, 'user_flag': 0, 'uid': 123}
+[2018-08-13 21:36:06][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:36:06] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:36:51][app][INFO]: ImmutableMultiDict([('message', '{"query":"明后天\\n"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-13 21:36:51][app][DEBUG]: {'message': {'query': '明后天\n'}, 'user_flag': 0, 'uid': 123}
+[2018-08-13 21:36:51][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:36:51] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%90%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:36:56][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour_server.py', reloading
+[2018-08-13 21:36:56][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:36:56][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:36:56][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:39:46][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/time_extract.py', reloading
+[2018-08-13 21:39:46][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:39:46][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:39:46][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:39:59][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('message', '{"query":"明天\\n"}'), ('uid', '123')])
+[2018-08-13 21:39:59][app][DEBUG]: {'user_flag': 0, 'message': {'query': '明天\n'}, 'uid': 123}
+[2018-08-13 21:39:59][app][DEBUG]: time,
+[2018-08-13 21:39:59][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:39:59] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:41:58][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/time_extract.py', reloading
+[2018-08-13 21:41:58][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:41:58][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:41:58][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:42:08][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"明天\\n"}')])
+[2018-08-13 21:42:08][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '明天\n'}}
+[2018-08-13 21:42:09][app][DEBUG]: time,{'start_time': '2018-08-14 00:00:00', 'delta_time': datetime.timedelta(1)}
+[2018-08-13 21:42:09][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:42:09] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-13 21:43:16][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/time_extract.py', reloading
+[2018-08-13 21:43:16][werkzeug][INFO]:  * Restarting with stat
+[2018-08-13 21:43:16][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-13 21:43:16][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-13 21:43:23][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"明天\\n"}')])
+[2018-08-13 21:43:23][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '明天\n'}}
+[2018-08-13 21:43:24][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-14 00:00:00'}
+[2018-08-13 21:43:24][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '你想问什么时候的天气'}
+[2018-08-13 21:43:24][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '你想问什么时候的天气'}), 'flag': 0}
+[2018-08-13 21:43:24][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-14 00:00:00'}
+[2018-08-13 21:43:24][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '你想问什么时候的天气'}
+[2018-08-13 21:43:24][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:43:24] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:43:35][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"明天呢\\n"}')])
+[2018-08-13 21:43:35][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '明天呢\n'}}
+[2018-08-13 21:43:36][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-14 00:00:00'}
+[2018-08-13 21:43:36][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '你想问什么时候的天气'}
+[2018-08-13 21:43:36][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '你想问什么时候的天气'}), 'flag': 0}
+[2018-08-13 21:43:37][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-14 00:00:00'}
+[2018-08-13 21:43:37][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '什么时候的呢？'}
+[2018-08-13 21:43:37][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:43:37] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%E5%91%A2%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:43:46][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"天气\\n"}')])
+[2018-08-13 21:43:46][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '天气\n'}}
+[2018-08-13 21:43:46][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '请问在哪儿呢？'}
+[2018-08-13 21:43:46][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-13 21:43:48][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '请问在哪儿呢？'}
+[2018-08-13 21:43:48][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:43:48] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:43:51][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"深圳\\n"}')])
+[2018-08-13 21:43:51][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '深圳\n'}}
+[2018-08-13 21:43:52][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '请问在哪儿呢？'}
+[2018-08-13 21:43:52][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-13 21:43:52][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '请问你想问哪儿的天气'}
+[2018-08-13 21:43:53][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:43:53] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:43:55][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"深圳呢\\n"}')])
+[2018-08-13 21:43:55][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '深圳呢\n'}}
+[2018-08-13 21:43:56][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '什么时候的呢？'}
+[2018-08-13 21:43:56][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '什么时候的呢？'}), 'flag': 0}
+[2018-08-13 21:43:57][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '什么时候的呢？'}
+[2018-08-13 21:43:57][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:43:57] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%E5%91%A2%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:43:59][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"明天\\n"}')])
+[2018-08-13 21:43:59][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '明天\n'}}
+[2018-08-13 21:43:59][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-14 00:00:00'}
+[2018-08-13 21:43:59][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '你想问什么时候的天气'}
+[2018-08-13 21:43:59][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '你想问什么时候的天气'}), 'flag': 0}
+[2018-08-13 21:44:00][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-14 00:00:00'}
+[2018-08-13 21:44:00][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '什么时候的呢？'}
+[2018-08-13 21:44:00][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:44:00] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:44:05][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"今天\\n"}')])
+[2018-08-13 21:44:05][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '今天\n'}}
+[2018-08-13 21:44:06][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-13 00:00:00'}
+[2018-08-13 21:44:06][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '请告诉我查询的时间，谢谢tmd'}
+[2018-08-13 21:44:06][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请告诉我查询的时间，谢谢tmd'}), 'flag': 0}
+[2018-08-13 21:44:07][app][DEBUG]: time,{'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-13 00:00:00'}
+[2018-08-13 21:44:07][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'tag': 0, 'question': '请告诉我查询的时间，谢谢tmd'}
+[2018-08-13 21:44:07][werkzeug][INFO]: 58.60.1.23 - - [13/Aug/2018 21:44:07] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E4%BB%8A%E5%A4%A9%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-13 21:56:04][werkzeug][INFO]: 103.50.7.250 - - [13/Aug/2018 21:56:04] "GET / HTTP/1.1" 404 -
+[2018-08-13 22:12:17][werkzeug][INFO]: 176.40.48.8 - - [13/Aug/2018 22:12:17] "GET / HTTP/1.1" 404 -
+[2018-08-13 22:28:43][werkzeug][INFO]: 60.174.69.158 - - [13/Aug/2018 22:28:43] "GET / HTTP/1.1" 404 -
+[2018-08-13 22:28:43][werkzeug][INFO]: 60.174.69.158 - - [13/Aug/2018 22:28:43] "GET /index.action HTTP/1.1" 404 -
+[2018-08-13 22:41:52][werkzeug][INFO]: 49.128.61.179 - - [13/Aug/2018 22:41:52] "GET / HTTP/1.0" 404 -
+[2018-08-13 22:54:59][werkzeug][INFO]: 201.0.90.253 - - [13/Aug/2018 22:54:59] "GET / HTTP/1.1" 404 -
+[2018-08-13 23:08:00][werkzeug][INFO]: 71.6.232.4 - - [13/Aug/2018 23:08:00] "GET / HTTP/1.1" 404 -
+[2018-08-13 23:49:38][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:38] "GET / HTTP/1.0" 404 -
+[2018-08-13 23:49:38][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:38] "OPTIONS / HTTP/1.0" 404 -
+[2018-08-13 23:49:38][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:38] code 400, message Bad request version ('RTSP/1.0')
+[2018-08-13 23:49:38][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:38] "OPTIONS / RTSP/1.0" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:38][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:38] "GET /nice%20ports%2C/Tri%6Eity.txt%2ebak HTTP/1.0" 404 -
+[2018-08-13 23:49:38][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:38] code 400, message Bad request syntax ('\x05\x04\x00\x01\x02\x80\x05\x01\x00\x03')
+[2018-08-13 23:49:38][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:38] "  " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:43][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:43] code 400, message Bad request syntax ('\x04\x01\x00\x16\x7f\x00\x00\x01root\x00')
+[2018-08-13 23:49:43][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:43] "   root " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:48][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:48] code 400, message Bad request version ('\x00\x01\x97|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[2018-08-13 23:49:48][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:48] "  (rþ          |                    " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:53][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:53] code 400, message Bad HTTP/0.9 request type ('\x00')
+[2018-08-13 23:49:53][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:53] "          versionbind   " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:58][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:58] code 400, message Bad HTTP/0.9 request type ('\x00')
+[2018-08-13 23:49:58][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:58] "            " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:58][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:58] code 400, message Bad request syntax ('HELP')
+[2018-08-13 23:49:58][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:58] "HELP" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:58][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:58] code 400, message Bad request syntax ('\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G×÷º,îê²`~ó\x00ý\x82{¹Õ\x96Èw\x9bæÄÛ<=Ûoï\x10n\x00\x00(\x00\x16\x00\x13\x00')
+[2018-08-13 23:49:58][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:58] "  S  O ?G×÷º,îê²`~ó ý{¹ÕÈwæÄÛ<=Ûoïn  (   " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:49:59][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:49:59] code 400, message Bad request syntax ('\x00\x00\x00qj\x81n0\x81k¡\x03\x02\x01\x05¢\x03\x02\x01')
+[2018-08-13 23:49:59][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:49:59] "   qjn0k¡¢" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:04][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:04] code 400, message Bad request syntax ('\x00\x00\x00¤ÿSMBr\x00\x00\x00\x00\x08\x01@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x06\x00\x00\x01\x00\x00\x81\x00\x02PC NETWORK PROGRAM 1.0\x00\x02MICROSOFT NETWORKS 1.03\x00\x02MICROSOFT NETWORKS 3.0\x00\x02LANMAN1.0\x00\x02LM1.2X002\x00\x02Samba\x00\x02NT LANMAN 1.0\x00\x02NT LM 0.12\x00')
+[2018-08-13 23:50:04][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:04] "   ¤ÿSMBr    @              @     PC NETWORK PROGRAM 1.0 MICROSOFT NETWORKS 1.03 MICROSOFT NETWORKS 3.0 LANMAN1.0 LM1.2X002 Samba NT LANMAN 1.0 NT LM 0.12 " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:09][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:09] code 400, message Bad HTTP/0.9 request type ('l\x00')
+[2018-08-13 23:50:09][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:09] "l          " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:09][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:09] code 400, message Bad request syntax ('\x01default')
+[2018-08-13 23:50:09][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:09] "default" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:14][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:14] code 400, message Bad HTTP/0.9 request type ('0')
+[2018-08-13 23:50:14][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:14] "0`  " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:14][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:14] code 400, message Bad request version ('SIP/2.0')
+[2018-08-13 23:50:14][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:14] "OPTIONS sip:nm SIP/2.0" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:19][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:19] code 400, message Bad request syntax ('TNMP\x04\x00\x00\x00TNME\x00\x00\x04\x00')
+[2018-08-13 23:50:19][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:19] "TNMP   TNME   " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:24][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:24] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00')
+[2018-08-13 23:50:24][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:24] "  à     " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:29][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:29] code 400, message Bad request syntax ('DmdT\x00\x00\x00\x17\x00\x00\x00\x01\x00\x00\x00\x00\x11\x11\x00ÿ\x01ÿ\x13')
+[2018-08-13 23:50:29][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:29] "DmdT           ÿÿ" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:34][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:34] code 400, message Bad HTTP/0.9 request type (':\x00\x00\x00/\x00\x00\x00\x02\x00\x00@\x02\x0f\x00\x01\x00=\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/\x00\x00\x00\x00\x00\x00\x00\x00\x00@')
+[2018-08-13 23:50:34][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:34] ":   /     @  =            /         @                 " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:39][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:39] code 400, message Bad request syntax ('\x01\x00\x00ýÎú\x0b°\xa0\x00\x00\x00MMS\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x12\x00\x00\x00\x01\x00\x03\x00ðððð\x0b\x00\x04\x00\x1c\x00\x03\x00N\x00S\x00P\x00l\x00a\x00y\x00e\x00r\x00/\x009\x00.\x000\x00.\x000\x00.\x002\x009\x008\x000\x00;\x00 \x00{\x000\x000\x000\x000\x00A\x00A\x000\x000\x00-\x000\x00A\x000\x000\x00-\x000\x000\x00a\x000\x00-\x00A\x00A\x000\x00A\x00-\x000\x000\x000\x000\x00A\x000\x00A\x00A\x000\x00A\x00A\x000\x00}\x00\x00\x00àmß_')
+[2018-08-13 23:50:39][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:39] "  ýÎú°    MMS                    ðððð    N S P l a y e r / 9 . 0 . 0 . 2 9 8 0 ;   { 0 0 0 0 A A 0 0 - 0 A 0 0 - 0 0 a 0 - A A 0 A - 0 0 0 0 A 0 A A 0 A A 0 }   àmß_" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:44][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:44] code 400, message Bad HTTP/0.9 request type ('\x00Z\x00\x00\x01\x00\x00\x00\x016\x01,\x00\x00\x08\x00\x7fÿ\x7f\x08\x00\x00\x00\x01\x00')
+[2018-08-13 23:50:44][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:44] " Z     6,   ÿ      :                4æ           (CONNECT_DATA=(COMMAND=version))" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:49][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:49] code 400, message Bad request syntax ('\x00\x03\x00\x01\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x0f\x00')
+[2018-08-13 23:50:49][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:49] "              " HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:50:54][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:50:54] code 400, message Bad request syntax ('\x94\x00ÍïÑa\x91\x03')
+[2018-08-13 23:50:54][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:50:54] " ÍïÑa" HTTPStatus.BAD_REQUEST -
+[2018-08-13 23:51:24][werkzeug][ERROR]: 111.11.5.114 - - [13/Aug/2018 23:51:24] code 400, message Bad request version ('\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[2018-08-13 23:51:24][werkzeug][INFO]: 111.11.5.114 - - [13/Aug/2018 23:51:24] "  (=                                " HTTPStatus.BAD_REQUEST -
+[2018-08-14 11:26:48][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-14 11:26:48][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:26:48][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:26:48][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:27:36][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 11:27:36][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气\n'}}
+[2018-08-14 11:27:38][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 11:27:38] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 11:27:45][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 11:27:45][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气\n'}}
+[2018-08-14 11:27:46][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 11:27:46] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 11:27:52][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"你好\\n"}')])
+[2018-08-14 11:27:52][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '你好\n'}}
+[2018-08-14 11:27:55][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 11:27:55] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E4%BD%A0%E5%A5%BD%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 11:29:42][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 11:29:42][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气\n'}}
+[2018-08-14 11:29:42][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 11:29:42] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 11:30:00][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 11:30:00][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气\n'}}
+[2018-08-14 11:30:03][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 11:30:03] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 11:32:28][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:32:28][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:32:28][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:32:28][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:33:23][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:33:23][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:33:23][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:33:23][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:34:02][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:34:02][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:34:03][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:34:03][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:34:05][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:34:05][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:34:05][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:34:05][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:36:03][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:36:04][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:36:04][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:36:04][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:36:06][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:36:06][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:36:06][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:36:06][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:37:01][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:37:01][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:37:02][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:37:02][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:37:03][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:37:03][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:37:03][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:37:03][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:37:30][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:37:30][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:37:30][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:37:30][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:37:37][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:37:37][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:37:37][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:37:37][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:37:59][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:37:59][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:37:59][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:37:59][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 11:38:09][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/ltp_client.py', reloading
+[2018-08-14 11:38:09][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 11:38:09][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 11:38:09][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 17:57:29][werkzeug][INFO]:  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+[2018-08-14 17:57:29][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 17:57:29][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 17:57:29][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 17:58:22][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"你好\\n"}')])
+[2018-08-14 17:58:22][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '你好\n'}}
+[2018-08-14 17:58:23][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请告诉我查询的时间，谢谢tmd', 'tag': 0}
+[2018-08-14 17:58:23][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请告诉我查询的时间，谢谢tmd'}), 'flag': 0}
+[2018-08-14 17:58:23][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '你想问什么时候的天气', 'tag': 0}
+[2018-08-14 17:58:23][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 17:58:23] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E4%BD%A0%E5%A5%BD%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 17:58:29][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 17:58:29][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气\n'}}
+[2018-08-14 17:58:30][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请问在哪儿呢？', 'tag': 0}
+[2018-08-14 17:58:30][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-14 17:58:31][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请问你想问哪儿的天气', 'tag': 0}
+[2018-08-14 17:58:31][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 17:58:31] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 17:58:54][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"你好\\n"}')])
+[2018-08-14 17:58:54][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '你好\n'}}
+[2018-08-14 17:58:55][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请问你想问哪儿的天气', 'tag': 0}
+[2018-08-14 17:58:55][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问你想问哪儿的天气'}), 'flag': 0}
+[2018-08-14 17:58:55][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请问在哪儿呢？', 'tag': 0}
+[2018-08-14 17:58:55][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 17:58:55] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E4%BD%A0%E5%A5%BD%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 17:59:14][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 17:59:14][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '天气\n'}}
+[2018-08-14 17:59:15][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请问在哪儿呢？', 'tag': 0}
+[2018-08-14 17:59:15][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-14 17:59:15][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请问你想问哪儿的天气', 'tag': 0}
+[2018-08-14 17:59:15][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 17:59:15] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 17:59:18][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"深圳\\n"}')])
+[2018-08-14 17:59:18][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '深圳\n'}}
+[2018-08-14 17:59:19][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '请告诉我查询的时间，谢谢tmd', 'tag': 0}
+[2018-08-14 17:59:19][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请告诉我查询的时间，谢谢tmd'}), 'flag': 0}
+[2018-08-14 17:59:20][app][DEBUG]: plolicy_result,{'answer': '', 'intent': 'weather', 'question': '你想问什么时候的天气', 'tag': 0}
+[2018-08-14 17:59:20][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 17:59:20] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 17:59:36][app][INFO]: ImmutableMultiDict([('user_flag', '0'), ('uid', '123'), ('message', '{"query":"明天\\n"}')])
+[2018-08-14 17:59:36][app][DEBUG]: {'user_flag': 0, 'uid': 123, 'message': {'query': '明天\n'}}
+[2018-08-14 17:59:36][app][DEBUG]: time,{'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 17:59:36][app][DEBUG]: plolicy_result,{'answer': {'state': 1, 'intent': 'weather', 'slot': {'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00', 'LOC': ['深圳']}}, 'intent': 'weather', 'question': '', 'tag': 1}
+[2018-08-14 17:59:36][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 17:59:36] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 18:01:03][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/agent/run_task.py', reloading
+[2018-08-14 18:01:03][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 18:01:03][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 18:01:03][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 18:01:16][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"nihao\\n"}')])
+[2018-08-14 18:01:16][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': 'nihao\n'}}
+[2018-08-14 18:01:17][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '什么时候的呢？'}
+[2018-08-14 18:01:17][app][DEBUG]: angent.response,{'flag': 0, 'message': defaultdict(<class 'dict'>, {'text': '什么时候的呢？'})}
+[2018-08-14 18:01:17][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '你想问什么时候的天气'}
+[2018-08-14 18:01:17][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:01:17] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22nihao%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:01:21][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 18:01:21][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '天气\n'}}
+[2018-08-14 18:01:21][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问你想问哪儿的天气'}
+[2018-08-14 18:01:21][app][DEBUG]: angent.response,{'flag': 0, 'message': defaultdict(<class 'dict'>, {'text': '请问你想问哪儿的天气'})}
+[2018-08-14 18:01:22][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问在哪儿呢？'}
+[2018-08-14 18:01:22][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:01:22] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:01:25][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"深圳\\n"}')])
+[2018-08-14 18:01:25][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '深圳\n'}}
+[2018-08-14 18:01:26][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 1, 'answer': {'state': 1, 'intent': 'weather', 'slot': {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'LOC': ['深圳']}}, 'question': ''}
+[2018-08-14 18:01:26][app][DEBUG]: angent.response,{'flag': 5, 'message': defaultdict(<class 'dict'>, {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'local': '深圳'})}
+[2018-08-14 18:01:27][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 1, 'answer': {'slot': {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'LOC': ['深圳']}, 'intent': 'weather', 'state': 1}, 'question': ''}
+[2018-08-14 18:01:27][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:01:27] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:03:26][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"tianqi"}')])
+[2018-08-14 18:03:26][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': 'tianqi'}}
+[2018-08-14 18:03:26][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:03:26][app][DEBUG]: angent.response,None
+[2018-08-14 18:03:27][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:03:27][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:03:27] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22tianqi%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:03:30][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 18:03:30][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '天气\n'}}
+[2018-08-14 18:03:34][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问在哪儿呢？'}
+[2018-08-14 18:03:34][app][DEBUG]: angent.response,{'flag': 0, 'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'})}
+[2018-08-14 18:03:35][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问在哪儿呢？'}
+[2018-08-14 18:03:35][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:03:35] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:03:59][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"深圳\\n"}')])
+[2018-08-14 18:03:59][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '深圳\n'}}
+[2018-08-14 18:03:59][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 1, 'answer': {'state': 1, 'intent': 'weather', 'slot': {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'LOC': ['深圳']}}, 'question': ''}
+[2018-08-14 18:03:59][app][DEBUG]: angent.response,{'flag': 5, 'message': defaultdict(<class 'dict'>, {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'local': '深圳'})}
+[2018-08-14 18:04:00][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 1, 'answer': {'slot': {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'LOC': ['深圳']}, 'intent': 'weather', 'state': 1}, 'question': ''}
+[2018-08-14 18:04:00][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:04:00] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:05:20][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"天气\\n"}')])
+[2018-08-14 18:05:20][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '天气\n'}}
+[2018-08-14 18:05:21][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问在哪儿呢？'}
+[2018-08-14 18:05:21][app][DEBUG]: angent.response,{'flag': 0, 'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'})}
+[2018-08-14 18:05:21][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问你想问哪儿的天气'}
+[2018-08-14 18:05:21][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:05:21] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:05:25][app][INFO]: ImmutableMultiDict([('uid', '123'), ('user_flag', '0'), ('message', '{"query":"北京\\n"}')])
+[2018-08-14 18:05:25][app][DEBUG]: {'uid': 123, 'user_flag': 0, 'message': {'query': '北京\n'}}
+[2018-08-14 18:05:25][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 1, 'answer': {'state': 1, 'intent': 'weather', 'slot': {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'LOC': ['北京']}}, 'question': ''}
+[2018-08-14 18:05:25][app][DEBUG]: angent.response,{'flag': 5, 'message': defaultdict(<class 'dict'>, {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'local': '北京'})}
+[2018-08-14 18:05:26][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 1, 'answer': {'slot': {'delta_time': '1 day, 0:00:00', 'start_time': '2018-08-15 00:00:00', 'LOC': ['北京']}, 'intent': 'weather', 'state': 1}, 'question': ''}
+[2018-08-14 18:05:26][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:05:26] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%8C%97%E4%BA%AC%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:13:11][werkzeug][INFO]: 202.59.142.21 - - [14/Aug/2018 18:13:11] "GET / HTTP/1.1" 404 -
+[2018-08-14 18:18:11][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/parser/time_extract.py', reloading
+[2018-08-14 18:18:11][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 18:18:11][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 18:18:11][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 18:19:31][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/dm/dst/dst.py', reloading
+[2018-08-14 18:19:31][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 18:19:31][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 18:19:31][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 18:19:41][app][INFO]: ImmutableMultiDict([('message', '{"query":"tianqi\\n"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-14 18:19:41][app][DEBUG]: {'message': {'query': 'tianqi\n'}, 'uid': 123, 'user_flag': 0}
+[2018-08-14 18:19:42][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:19:42][app][DEBUG]: angent.response,None
+[2018-08-14 18:19:43][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:19:43][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:19:43] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22tianqi%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:19:43][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-14 18:19:43][app][DEBUG]: {'message': {'query': '天气\n'}, 'uid': 123, 'user_flag': 0}
+[2018-08-14 18:19:43][app][DEBUG]: plolicy_result,{'tag': 0, 'question': '请问你想问哪儿的天气', 'intent': 'weather', 'answer': ''}
+[2018-08-14 18:19:43][app][DEBUG]: angent.response,{'flag': 0, 'message': defaultdict(<class 'dict'>, {'text': '请问你想问哪儿的天气'})}
+[2018-08-14 18:19:44][app][DEBUG]: plolicy_result,{'tag': 0, 'question': '请问你想问哪儿的天气', 'intent': 'weather', 'answer': ''}
+[2018-08-14 18:19:44][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:19:44] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:20:17][app][INFO]: ImmutableMultiDict([('message', '{"query":"深圳"}'), ('uid', '123'), ('user_flag', '0')])
+[2018-08-14 18:20:17][app][DEBUG]: {'message': {'query': '深圳'}, 'uid': 123, 'user_flag': 0}
+[2018-08-14 18:20:18][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'intent': 'weather', 'answer': {'slot': {'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00', 'LOC': ['深圳']}, 'state': 1, 'intent': 'weather'}}
+[2018-08-14 18:20:18][app][DEBUG]: angent.response,{'flag': 5, 'message': defaultdict(<class 'dict'>, {'local': '深圳', 'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00'})}
+[2018-08-14 18:20:18][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'intent': 'weather', 'answer': {'slot': {'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00', 'LOC': ['深圳']}, 'state': 1, 'intent': 'weather'}}
+[2018-08-14 18:20:18][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:20:18] "GET /v1/api/chatmessage/?uid=123&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:25:19][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('uid', '123abc'), ('user_flag', '0')])
+[2018-08-14 18:25:19][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:25:19] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 18:25:41][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('uid', '123abc'), ('user_flag', '0')])
+[2018-08-14 18:25:41][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:25:41] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 18:26:19][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('uid', '123abc'), ('user_flag', '0')])
+[2018-08-14 18:26:19][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:26:19] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 500 -
+[2018-08-14 18:28:48][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour_server.py', reloading
+[2018-08-14 18:28:48][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 18:28:49][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 18:28:49][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 18:29:03][app][INFO]: ImmutableMultiDict([('message', '{"query":"你好\\n"}'), ('uid', '123abc'), ('user_flag', '0')])
+[2018-08-14 18:29:03][app][DEBUG]: {'message': {'query': '你好\n'}, 'uid': '123abc', 'user_flag': 0}
+[2018-08-14 18:29:04][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:29:04][app][DEBUG]: angent.response,None
+[2018-08-14 18:29:05][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:29:05][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:29:05] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E4%BD%A0%E5%A5%BD%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:29:06][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('uid', '123abc'), ('user_flag', '0')])
+[2018-08-14 18:29:06][app][DEBUG]: {'message': {'query': '天气\n'}, 'uid': '123abc', 'user_flag': 0}
+[2018-08-14 18:29:06][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问在哪儿呢？'}
+[2018-08-14 18:29:06][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-14 18:29:07][app][DEBUG]: plolicy_result,{'intent': 'weather', 'tag': 0, 'answer': '', 'question': '请问在哪儿呢？'}
+[2018-08-14 18:29:07][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:29:07] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:29:13][app][INFO]: ImmutableMultiDict([('message', '{"query":"深圳\\n"}'), ('uid', '123abc'), ('user_flag', '0')])
+[2018-08-14 18:29:13][app][DEBUG]: {'message': {'query': '深圳\n'}, 'uid': '123abc', 'user_flag': 0}
+[2018-08-14 18:29:13][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:29:13][app][DEBUG]: angent.response,None
+[2018-08-14 18:29:13][app][DEBUG]: plolicy_result,None
+[2018-08-14 18:29:13][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:29:13] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:31:44][werkzeug][INFO]:  * Detected change in '/home/ubuntu/bonjour-release/bonjour/dm/policy/policy.py', reloading
+[2018-08-14 18:31:44][werkzeug][INFO]:  * Restarting with stat
+[2018-08-14 18:31:45][werkzeug][WARNING]:  * Debugger is active!
+[2018-08-14 18:31:45][werkzeug][INFO]:  * Debugger PIN: 828-551-755
+[2018-08-14 18:31:59][app][INFO]: ImmutableMultiDict([('message', '{"query":"天气\\n"}'), ('user_flag', '0'), ('uid', '123abc')])
+[2018-08-14 18:31:59][app][DEBUG]: {'message': {'query': '天气\n'}, 'user_flag': 0, 'uid': '123abc'}
+[2018-08-14 18:32:03][app][DEBUG]: plolicy_result,{'tag': 0, 'question': '请问在哪儿呢？', 'answer': '', 'intent': 'weather'}
+[2018-08-14 18:32:03][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请问在哪儿呢？'}), 'flag': 0}
+[2018-08-14 18:32:03][app][DEBUG]: plolicy_result,{'tag': 0, 'question': '请问你想问哪儿的天气', 'answer': '', 'intent': 'weather'}
+[2018-08-14 18:32:03][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:32:03] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E5%A4%A9%E6%B0%94%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:32:12][app][INFO]: ImmutableMultiDict([('message', '{"query":"深圳\\n"}'), ('user_flag', '0'), ('uid', '123abc')])
+[2018-08-14 18:32:12][app][DEBUG]: {'message': {'query': '深圳\n'}, 'user_flag': 0, 'uid': '123abc'}
+[2018-08-14 18:32:12][app][DEBUG]: plolicy_result,{'tag': 0, 'question': '请告诉我查询的时间，谢谢tmd', 'answer': '', 'intent': 'weather'}
+[2018-08-14 18:32:12][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'text': '请告诉我查询的时间，谢谢tmd'}), 'flag': 0}
+[2018-08-14 18:32:13][app][DEBUG]: plolicy_result,{'tag': 0, 'question': '你想问什么时候的天气', 'answer': '', 'intent': 'weather'}
+[2018-08-14 18:32:13][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:32:13] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E6%B7%B1%E5%9C%B3%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:32:16][app][INFO]: ImmutableMultiDict([('message', '{"query":"明天\\n"}'), ('user_flag', '0'), ('uid', '123abc')])
+[2018-08-14 18:32:16][app][DEBUG]: {'message': {'query': '明天\n'}, 'user_flag': 0, 'uid': '123abc'}
+[2018-08-14 18:32:16][app][DEBUG]: time,{'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:16][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-15 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:16][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00', 'local': '深圳'}), 'flag': 5}
+[2018-08-14 18:32:16][app][DEBUG]: time,{'start_time': '2018-08-15 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:16][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-15 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:16][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:32:16] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:32:23][app][INFO]: ImmutableMultiDict([('message', '{"query":"今天\\n"}'), ('user_flag', '0'), ('uid', '123abc')])
+[2018-08-14 18:32:23][app][DEBUG]: {'message': {'query': '今天\n'}, 'user_flag': 0, 'uid': '123abc'}
+[2018-08-14 18:32:23][app][DEBUG]: time,{'start_time': '2018-08-14 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:23][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-14 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:23][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'start_time': '2018-08-14 00:00:00', 'delta_time': '1 day, 0:00:00', 'local': '深圳'}), 'flag': 5}
+[2018-08-14 18:32:24][app][DEBUG]: time,{'start_time': '2018-08-14 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:24][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-14 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:24][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:32:24] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E4%BB%8A%E5%A4%A9%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:32:27][app][INFO]: ImmutableMultiDict([('message', '{"query":"后天\\n"}'), ('user_flag', '0'), ('uid', '123abc')])
+[2018-08-14 18:32:27][app][DEBUG]: {'message': {'query': '后天\n'}, 'user_flag': 0, 'uid': '123abc'}
+[2018-08-14 18:32:27][app][DEBUG]: time,{'start_time': '2018-08-16 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:27][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-16 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:27][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'start_time': '2018-08-16 00:00:00', 'delta_time': '1 day, 0:00:00', 'local': '深圳'}), 'flag': 5}
+[2018-08-14 18:32:28][app][DEBUG]: time,{'start_time': '2018-08-16 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:28][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-16 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:28][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:32:28] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E5%90%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 18:32:31][app][INFO]: ImmutableMultiDict([('message', '{"query":"明后天\\n"}'), ('user_flag', '0'), ('uid', '123abc')])
+[2018-08-14 18:32:31][app][DEBUG]: {'message': {'query': '明后天\n'}, 'user_flag': 0, 'uid': '123abc'}
+[2018-08-14 18:32:31][app][DEBUG]: time,{'start_time': '2018-08-17 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:31][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-17 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:31][app][DEBUG]: angent.response,{'message': defaultdict(<class 'dict'>, {'start_time': '2018-08-17 00:00:00', 'delta_time': '1 day, 0:00:00', 'local': '深圳'}), 'flag': 5}
+[2018-08-14 18:32:32][app][DEBUG]: time,{'start_time': '2018-08-17 00:00:00', 'delta_time': '1 day, 0:00:00'}
+[2018-08-14 18:32:32][app][DEBUG]: plolicy_result,{'tag': 1, 'question': '', 'answer': {'intent': 'weather', 'slot': {'start_time': '2018-08-17 00:00:00', 'LOC': ['深圳'], 'delta_time': '1 day, 0:00:00'}, 'state': 1}, 'intent': 'weather'}
+[2018-08-14 18:32:32][werkzeug][INFO]: 58.60.1.23 - - [14/Aug/2018 18:32:32] "GET /v1/api/chatmessage/?uid=123abc&user_flag=0&message=%7B%22query%22:%22%E6%98%8E%E5%90%8E%E5%A4%A9%5Cn%22%7D HTTP/1.1" 200 -
+[2018-08-14 20:36:37][werkzeug][INFO]: 191.100.10.206 - - [14/Aug/2018 20:36:37] "GET / HTTP/1.1" 404 -
+[2018-08-14 20:37:48][werkzeug][INFO]: 72.79.56.56 - - [14/Aug/2018 20:37:48] "GET / HTTP/1.0" 404 -

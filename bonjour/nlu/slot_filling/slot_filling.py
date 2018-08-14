@@ -1,11 +1,11 @@
-# from bonjour.ner.jner import JNER
-from bonjour.ner.ltp_ner import LTP
-from bonjour.ner.time_extract import TimeExtract
+# from bonjour.parser.jner import JNER
+from bonjour.parser.ltp_client import LTP
+from bonjour.parser.time_extract import TimeExtract
 
 
 class SlotFilling:
     def __init__(self, ltp_data_path='./data/ltp/ltp_data_v3.4.0'):
-        self._ltp_handle = LTP(ltp_data_path=ltp_data_path)
+        self._ltp_handle = LTP()
         self._time_extract = TimeExtract()
 
     def slot_extract(self, query):
@@ -14,6 +14,8 @@ class SlotFilling:
         :param query:
         :return:
         """
+        # query后面加个呢字，为了解决ltp把地名识别成机构名字
+        query = query.strip()+'呢'
         std_ner_result = self._ltp_handle.ner(query)
         time_ner_result = self._time_extract.extract(query)
         slot_dict = {**std_ner_result, **time_ner_result}

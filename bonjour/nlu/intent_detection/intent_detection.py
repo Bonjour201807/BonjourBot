@@ -1,13 +1,20 @@
+"""
+@Author: yangdu
+@Time: 2018/8/4 下午5:27
+@Software: PyCharm
+"""
+
 import yaml
 import re
 
 
 class Intent:
-    def __init__(self, intent_path='./data/intent/intent_trigger_word.yaml'):
+    def __init__(self, intent_path='./data/intent/intent.yaml'):
         #临时方案
         self.rule_intent_map = {}
         with open(intent_path, encoding='utf8') as f:
             intent_dict = yaml.load(f)
+            #print('intent_dict：', intent_dict)
             intent_keys = intent_dict['intent'].keys()
             for intent in intent_keys:
                 for rule_expr in intent_dict['intent'][intent]:
@@ -26,5 +33,5 @@ class Intent:
 if __name__ == '__main__':
     import sys
     sys.path.append('/Users/dy/Desktop/back/InfoR/bonjour')
-    intent_haddle = Intent('/Users/pangyuming/Downloads/BonjourBot/data/intent/intent_trigger_word.yaml')
+    intent_haddle = Intent('/Users/dy/Desktop/back/InfoR/bonjour/data/intent/intent.yaml')
     print(intent_haddle.intent_recognition('我想出去玩'))
