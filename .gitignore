@@ -1,0 +1,6 @@
+.DS_Store
+data
+.idea/
+__pycache__
+*.py[cod]
+tmp
