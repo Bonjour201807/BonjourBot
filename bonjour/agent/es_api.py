@@ -24,6 +24,7 @@ def search_tags(uid=None, scroll_id=0, scroll_size=12, loc=None, distance=None):
     if scroll_id == 0:
         tags = []
         res = search_by_distance(loc=loc, distance=distance, size=100)
+        print(res)
         for item in res['hits']['hits']:
             for tag in item['_source']['tags']:
                 tags.append(tag)
@@ -32,8 +33,8 @@ def search_tags(uid=None, scroll_id=0, scroll_size=12, loc=None, distance=None):
         tags = redis_handle.lrange(uid_tag, scroll_id, scroll_id+scroll_size-1)
         tags = [tag for tag in tags]
         return {'flag': 2,
-                'scroll_id': scroll_id+scroll_size,
                 'message': {
+                        'scroll_id': scroll_id+scroll_size,
                         'text': '您可能感兴趣的标签：',
                         'tags': tags}}
     else:
@@ -41,20 +42,21 @@ def search_tags(uid=None, scroll_id=0, scroll_size=12, loc=None, distance=None):
         tags = [tag for tag in tags]
         if tags:
             return {'flag': 2,
-                    'scroll_id': scroll_id+scroll_size,
                     'message': {
+                        'scroll_id': scroll_id+scroll_size,
                         'text': '您可能感兴趣的标签：',
                         'tags': tags}}
         else:
 
             return {'flag': 2,
-                    'scroll_id': scroll_id-scroll_size,
+                    #'scroll_id': scroll_id-scroll_size,
                     'message': {
+                        'scroll_id': scroll_id-scroll_size,
                         'text': '您可能感兴趣的标签：',
                         'tags': ["云海", "湖泊", "雪山", "日出", "冰川", "峡谷"]}}
 
 
-def search_attractions(loc=None, distance='100km', tags=None, scroll_id=None, size=10):
+def search_attractions(loc=None, distance='100km', tags=None, scroll_id=None, size=3):
     if not scroll_id:
         res = search_by_distance(loc, distance, tags, scroll='2m', size=size)
         scroll_id = res['_scroll_id']
@@ -62,8 +64,10 @@ def search_attractions(loc=None, distance='100km', tags=None, scroll_id=None, si
         data = [item['_source'] for item in data]
         for item in data:
             item['pic_path'] = item['images']
-        return {'scroll_id': scroll_id,
-                'data': data}
+        return {
+                'flag':3,
+                'message': {'data':data,
+                            'scroll_id': scroll_id}}
     else:
         res = ES.scroll(scroll_id=scroll_id, scroll='2m')
         scroll_id = res['_scroll_id']
@@ -71,11 +75,13 @@ def search_attractions(loc=None, distance='100km', tags=None, scroll_id=None, si
         data = [item['_source'] for item in data]
         for item in data:
             item['pic_path'] = item['images']
-        return {'scroll_id': scroll_id,
-                'data': data}
+        ret = {'flag':3,
+               'message': {'data':data,
+                           'scroll_id':scroll_id}}
+        return ret
 
 
-def search_by_distance(loc, distance='100km', tags=None, scroll=None, size=10):
+def search_by_distance(loc, distance='100km', tags=None, scroll=None, size=3):
     """
     计算以loc为中心的distance距离范围内的点
     :param loc: 字典{"lat":48.658992,"lon":87.040846}或者数组[lon, lat]或字符串"lat,lon" note:后两种形式lon和lat前后相反

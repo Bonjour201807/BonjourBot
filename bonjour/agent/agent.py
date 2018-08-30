@@ -25,7 +25,7 @@ class Agent:
             req_dct = dict()
             req_dct['uid'] = req['uid']
             req_dct['query'] = req['message']['query']
-            logger.debug('angent.response,{}'.format(self._task_runner.run(req_dct)))
+            #logger.debug('angent.response,{}'.format(self._task_runner.run(req_dct)))
             return self._task_runner.run(req_dct)
 
         elif req['user_flag'] == 1 or req['user_flag'] == '1':
@@ -38,8 +38,9 @@ class Agent:
                 return None
 
         elif req['user_flag'] == 2 or req['user_flag'] == '2':
+            print(redis_handle.get(req['uid']+':info'))
             user_info = eval(redis_handle.get(req['uid']+':info'))
-            tags = req['message']['select_tags'] + req['message']['input_tags']
+            tags = req['message']['select_tags'] + [req['message']['input_tag']]
             scroll_id = req.get('scroll_id')
             return search_attractions(loc=user_info['loc'], distance=user_info['distance'], tags=tags, scroll_id=scroll_id)
 

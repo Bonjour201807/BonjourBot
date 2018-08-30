@@ -11,7 +11,7 @@ from flask import Flask, request
 from flask_cors import CORS
 
 app = Flask(__name__)
-logger.setLevel('DEBUG')
+logger.setLevel('INFO')
 agenter = Agent()
 CORS(app, supports_credentials=True)
 
@@ -28,6 +28,7 @@ def chat_bot():
     req_dct['user_flag'] = json.loads(request.args.get('user_flag'))
     req_dct['message'] = json.loads(request.args.get('message'))
     logger.debug(req_dct)
+    #print('json.dumps(agenter.response(req_dct))',json.dumps(agenter.response(req_dct)))
     return json.dumps(agenter.response(req_dct))
 
 
@@ -35,7 +36,7 @@ def chat_bot():
 def tags_scroll():
     uid = request.args.get('uid')
     scroll_id = request.args.get('scroll_id')
-    res = tags_scroll(uid=uid, scroll_id=scroll_id)
+    res = tags_scroll(uid, scroll_id)
     return json.dumps(res)
 
 
@@ -49,4 +50,4 @@ def attractions_scroll():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0', port=8085)
+    app.run(host='0.0.0.0', port=8088)

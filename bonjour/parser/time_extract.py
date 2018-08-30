@@ -9,8 +9,9 @@ import json
 import datetime
 
 from dateutil import parser
-from bonjour.utils import logger
+#from bonjour.utils import logger
 from bonjour.parser.time_ner.TimeNormalizer import TimeNormalizer
+#from time_ner.TimeNormalizer import TimeNormalizer
 
 
 class TimeExtract:
