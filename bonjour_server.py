@@ -14,12 +14,14 @@ logger.setLevel('DEBUG')
 agenter = Agent()
 CORS(app, supports_credentials=True)
 
+
 @app.route('/v1/api/chatmessage/', methods=['GET'])
 def chat_bot():
     # if request.method == 'POST':
     #     req_dct = json.loads(request.data)
     # else:
     logger.info(request.args)
+    print(request.args)
     req_dct = dict()
     req_dct['uid'] = request.args.get('uid')
     req_dct['user_flag'] = json.loads(request.args.get('user_flag'))
@@ -30,4 +32,4 @@ def chat_bot():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0',port=8080)
+    app.run(host='0.0.0.0', port=8085)
