@@ -3,11 +3,7 @@
 @Time: 2018/8/28 下午3:59
 @Software: PyCharm
 """
-
-import redis
-pool = redis.ConnectionPool(host="localhost",port=6379)
-redis_haddle = redis.Redis(connection_pool=pool)
-
+from bonjour.utils.db_utils import redis_handle
 from elasticsearch import Elasticsearch
 
 ES = Elasticsearch()
@@ -32,17 +28,17 @@ def search_tags(uid=None, scroll_id=0, scroll_size=12, loc=None, distance=None):
             for tag in item['_source']['tags']:
                 tags.append(tag)
         for tag in set(tags):
-            redis_haddle.rpush(uid_tag, tag)
-        tags = redis_haddle.lrange(uid_tag, scroll_id, scroll_id+scroll_size-1)
-        tags = [tag.decode() for tag in tags]
+            redis_handle.rpush(uid_tag, tag)
+        tags = redis_handle.lrange(uid_tag, scroll_id, scroll_id+scroll_size-1)
+        tags = [tag for tag in tags]
         return {'flag': 2,
                 'scroll_id': scroll_id+scroll_size,
                 'message': {
                         'text': '您可能感兴趣的标签：',
                         'tags': tags}}
     else:
-        tags = redis_haddle.lrange(uid_tag, scroll_id, scroll_id+scroll_size-1)
-        tags = [tag.decode() for tag in tags]
+        tags = redis_handle.lrange(uid_tag, scroll_id, scroll_id+scroll_size-1)
+        tags = [tag for tag in tags]
         if tags:
             return {'flag': 2,
                     'scroll_id': scroll_id+scroll_size,
@@ -95,7 +91,6 @@ def search_by_distance(loc, distance='100km', tags=None, scroll=None, size=10):
 
     geo_dict = {"geo_distance":
                     {"distance": distance, "loc": loc}}
-    print(geo_dict)
 
     body = {
         "query": {

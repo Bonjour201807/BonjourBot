@@ -5,6 +5,7 @@
 """
 import json
 from bonjour.agent.agent import Agent
+from bonjour.agent.es_api import tags_scroll, attractions_scroll
 from bonjour.utils import logger
 from flask import Flask, request
 from flask_cors import CORS
@@ -28,6 +29,24 @@ def chat_bot():
     req_dct['message'] = json.loads(request.args.get('message'))
     logger.debug(req_dct)
     return json.dumps(agenter.response(req_dct))
+
+
+@app.route('/v1/api/tags/scroll/', methods=['GET'])
+def tags_scroll():
+    uid = request.args.get('uid')
+    scroll_id = request.args.get('scroll_id')
+    res = tags_scroll(uid=uid, scroll_id=scroll_id)
+    return json.dumps(res)
+
+
+@app.route('/v1/api/attractions/scroll/', methods=['GET'])
+def attractions_scroll():
+    uid = request.args.get('uid')
+    scroll_id = request.args.get('scroll_id')
+    res = attractions_scroll(uid=uid, scroll_id=scroll_id)
+    return json.dumps(res)
+
+
 
 
 if __name__ == '__main__':
