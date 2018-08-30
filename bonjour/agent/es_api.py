@@ -13,7 +13,17 @@ from elasticsearch import Elasticsearch
 ES = Elasticsearch()
 
 
-def search_tags(uid=None, scroll_id=0, scroll_size=10, loc=None, distance=None):
+def tags_scroll(uid, scroll_id):
+    return search_tags(uid=uid, scroll_id=scroll_id)
+
+
+def attractions_scroll(scroll_id, uid=None):
+    return search_attractions(scroll_id=scroll_id)
+
+
+def search_tags(uid=None, scroll_id=0, scroll_size=12, loc=None, distance=None):
+    if isinstance(scroll_id,str):
+        scroll_id = eval(scroll_id)
     uid_tag = uid + ':tag'
     if scroll_id == 0:
         tags = []
@@ -115,12 +125,12 @@ if __name__ == '__main__':
     # 114.057868, 22.543099
     # res = search_by_distance([87.040846, 48.658992], '10km')
     # res = search_by_distance(','.join([str(48.658992), str(87.040846)]), '10km')
-    print(search_tags(uid='zxcv1',loc='22.543099,114.057868',distance='0.1km'))
-    # print(search_tags(uid='zxcv1',scroll_id=10))
-    # res = search_by_distance({"lat" : 48.658992, "lon" : 87.040846}, '100km',tags=['林', '栈道', '青山', '牧场', '船', '小镇', '动物', '生态', '观景台', '阳光'],scroll='1m')
-    # print(res)
-    # print(search_attractions(scroll_id='DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAKzpFmRFTXFFYW84VHpTWWtMSWpaNTd2bXcAAAAAAACs6BZkRU1xRWFvOFR6U1lrTElqWjU3dm13AAAAAAAArOcWZEVNcUVhbzhUelNZa0xJalo1N3ZtdwAAAAAAAKzqFmRFTXFFYW84VHpTWWtMSWpaNTd2bXcAAAAAAACs6xZkRU1xRWFvOFR6U1lrTElqWjU3dm13'))
-    # print('-------')
+    print(search_tags(uid='zxcv1', loc='22.543099,114.057868',distance='0.1km'))
+    print(tags_scroll(uid='zxcv1', scroll_id=12))
+    res = search_attractions('22.543099,114.057868', '100km',tags=['林', '栈道', '青山', '牧场', '船', '小镇', '动物', '生态', '观景台', '阳光'])
+    print(res)
+    print(attractions_scroll(scroll_id='DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAMCNFmRFTXFFYW84VHpTWWtMSWpaNTd2bXcAAAAAAADAjBZkRU1xRWFvOFR6U1lrTElqWjU3dm13AAAAAAAAwI4WZEVNcUVhbzhUelNZa0xJalo1N3ZtdwAAAAAAAMCPFmRFTXFFYW84VHpTWWtMSWpaNTd2bXcAAAAAAADAkBZkRU1xRWFvOFR6U1lrTElqWjU3dm13'))
+    print('-------')
     # res1 = search_by_distance({"lat": 48.658992, "lon": 87.040846}, '30km')
     # print(len(res1), res1)
     # print('-------')
