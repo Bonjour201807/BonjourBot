@@ -7,7 +7,8 @@
 import json
 import random
 
-from bonjour.dm.dst.dst import DST, redis_handle
+from bonjour.utils import redis_handle
+from bonjour.dm.dst.dst import DST
 
 
 class Policy:

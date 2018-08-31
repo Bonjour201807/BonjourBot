@@ -25,7 +25,7 @@ class Agent:
             req_dct = dict()
             req_dct['uid'] = req['uid']
             req_dct['query'] = req['message']['query']
-            logger.debug('angent.response,{}'.format(self._task_runner.run(req_dct)))
+            #logger.debug('angent.response,{}'.format(self._task_runner.run(req_dct)))
             return self._task_runner.run(req_dct)
 
         elif req['user_flag'] == 1 or req['user_flag'] == '1':
