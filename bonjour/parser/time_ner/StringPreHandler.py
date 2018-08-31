@@ -181,3 +181,9 @@ class StringPreHandler:
         except:
             res = 0
         return res
+
+if __name__ == '__main__':
+    import os
+    print(os.path.dirname(__file__))
+    print(StringPreHandler.delKeyword('woza', 'w'))
+    print(StringPreHandler.numberTranslator('今天是用一百五十点二十五'))

@@ -14,11 +14,6 @@ from StringPreHandler import StringPreHandler
 from TimePoint import TimePoint
 from TimeUnit import TimeUnit
 
-import sys
-import imp
-# imp.reload(sys)
-# sys.setdefaultencoding('utf8')
-
 
 # 时间表达式识别的主要工作类
 class TimeNormalizer:

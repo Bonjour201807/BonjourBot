@@ -5,12 +5,16 @@
 """
 
 from bonjour.agent.run_task import RunTask
+from bonjour.nlu.intent_detection.intent_detection import Intent
 from bonjour.utils import logger
 from bonjour.agent.amap_api import Amap
 from bonjour.utils.common_utils import *
 from bonjour.agent.es_api import *
 from bonjour.utils.db_utils import redis_handle
+from bonjour.agent.external_api import TulinBot
+import json
 
+intenter = Intent()
 
 class Agent:
     def __init__(self):
@@ -22,9 +26,31 @@ class Agent:
         :return:
         """
         if req['user_flag'] == 0 or req['user_flag'] == '0':
+            query = req['message']['query']
+            uid = req['uid']
             req_dct = dict()
-            req_dct['uid'] = req['uid']
-            req_dct['query'] = req['message']['query']
+            req_dct['uid'] = uid
+            req_dct['query'] = query
+            cly = self.dispatch(uid, query)
+            print('get_cly',cly)
+            if cly == 1:
+                ret = self._task_runner.run(req_dct)
+                print('_task_runner:',ret)
+                if ret:
+                    redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
+                    redis_handle.lpush(uid+':query_history', json.dumps({'answer': ret, 'who': 1}))
+                    return ret
+                else:
+                    ret = TulinBot.get_answer(uid, query)
+                    redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
+                    redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 2}))
+                    return ret
+            elif cly == 2:
+                ret = TulinBot.get_answer(uid, query)
+                redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
+                redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 2}))
+                return ret
+
             #logger.debug('angent.response,{}'.format(self._task_runner.run(req_dct)))
             return self._task_runner.run(req_dct)
 
@@ -38,8 +64,9 @@ class Agent:
                 return None
 
         elif req['user_flag'] == 2 or req['user_flag'] == '2':
+            print(redis_handle.get(req['uid']+':info'))
             user_info = eval(redis_handle.get(req['uid']+':info'))
-            tags = req['message']['select_tags'] + req['message']['input_tags']
+            tags = req['message']['select_tags'] + [req['message']['input_tag']]
             scroll_id = req.get('scroll_id')
             return search_attractions(loc=user_info['loc'], distance=user_info['distance'], tags=tags, scroll_id=scroll_id)
 
@@ -56,7 +83,22 @@ class Agent:
             # TODO 其他任务配置，考虑开发一个适配器
             return ''
 
+    def dispatch(self, uid, query):
+        intent = intenter.intent_recognition(query)['intent']
+        if intent in ['weather', 'play']:
+            return 1
+        else:
+            item = redis_handle.lpop(uid+':query_history')
+            item = json.loads(item)
+            if item:
+                if item['who'] == 1 or item['who'] == '1':
+                    return 1
+                else:
+                    return 2
+            else:
+                return 2
+
 
 if __name__ == '__main__':
     agenter = Agent()
-    print(agenter.response({'uid':'azx','user_flag':1,'message':{'days':1,'departure':'乌鲁木齐市'}}))
+    print(agenter.response({'uid':'azx','user_flag':1,'message':{'days':1,'departure':'天气'}}))

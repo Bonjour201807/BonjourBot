@@ -6,7 +6,6 @@
 # @Software: PyCharm
 
 
-
 # 范围时间的默认时间点
 class RangeTimeEnum():
     day_break = 3  # 黎明

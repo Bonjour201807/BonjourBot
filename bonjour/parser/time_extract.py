@@ -9,8 +9,9 @@ import json
 import datetime
 
 from dateutil import parser
-from bonjour.utils import logger
+#from bonjour.utils import logger
 from bonjour.parser.time_ner.TimeNormalizer import TimeNormalizer
+#from time_ner.TimeNormalizer import TimeNormalizer
 
 
 class TimeExtract:
@@ -29,21 +30,21 @@ class TimeExtract:
             if time_result['type'] == 'timestamp':
                 geted_time['delta_time'] = str(datetime.timedelta(days=1))
                 geted_time['start_time'] = time_result['timestamp']
-                logger.debug('time,{}'.format(geted_time))
+                # logger.debug('time,{}'.format(geted_time))
                 return geted_time
 
             elif time_result['type'] == 'timespan':
                 timedelta = parser.parse(time_result['timespan'][1]) - parser.parse(time_result['timespan'][0])
                 geted_time['delta_time'] = timedelta
                 geted_time['start_time'] = time_result['timespan'][0]
-                logger.debug('time,',geted_time)
+                # logger.debug('time,',geted_time)
                 return geted_time
 
             elif time_result['type'] == 'timedelta':
                 time_start = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 geted_time['delta_time'] = time_result['timedelta']
                 geted_time['start_time'] = time_start
-                logger.debug('time',geted_time)
+                # logger.debug('time',geted_time)
                 return geted_time
         return geted_time
 
