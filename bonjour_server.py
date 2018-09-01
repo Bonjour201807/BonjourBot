@@ -5,10 +5,12 @@
 """
 import json
 from bonjour.agent.agent import Agent
-from bonjour.agent.es_api import tags_scroll, attractions_scroll
+# from bonjour.agent.es_api import tags_scroll, attractions_scroll
+from bonjour.agent.search import tags_scroll, spots_scroll
 from bonjour.utils import logger
 from flask import Flask, request
 from flask_cors import CORS
+
 
 app = Flask(__name__)
 logger.setLevel('INFO')
@@ -26,19 +28,21 @@ def chat_bot():
     return json.dumps(agenter.response(req_dct))
 
 
-@app.route('/v1/api/tags/scroll/', methods=['GET'])
+@app.route('/v1/api/tags/', methods=['GET'])
 def tags_scroll():
     uid = request.args.get('uid')
-    scroll_id = request.args.get('scroll_id')
+    scroll_id = request.args.get('from_page')
     res = tags_scroll(uid, scroll_id)
     return json.dumps(res)
 
 
-@app.route('/v1/api/attractions/scroll/', methods=['GET'])
-def attractions_scroll():
-    uid = request.args.get('uid')
-    scroll_id = request.args.get('scroll_id')
-    res = attractions_scroll(uid=uid, scroll_id=scroll_id)
+@app.route('/v1/api/spots/', methods=['GET'])
+def spots_scroll_():
+    req_dct = dict()
+    req_dct['uid'] = request.args.get('uid')
+    req_dct['from_page'] = request.args.get('from_page')
+    req_dct['data'] = json.loads(request.args.get('data'))
+    res = spots_scroll(req)
     return json.dumps(res)
 
 
