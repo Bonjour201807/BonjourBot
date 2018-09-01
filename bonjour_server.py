@@ -29,10 +29,12 @@ def chat_bot():
 
 
 @app.route('/v1/api/tags/', methods=['GET'])
-def tags_scroll():
-    uid = request.args.get('uid')
-    scroll_id = request.args.get('from_page')
-    res = tags_scroll(uid, scroll_id)
+def tags_scroll_():
+    req_dct = dict()
+    req_dct['uid'] = request.args.get('uid')
+    req_dct['from_page'] = request.args.get('from_page')
+    req_dct['data'] = json.loads(request.args.get('data'))
+    res = tags_scroll(req_dct)
     return json.dumps(res)
 
 
@@ -42,7 +44,7 @@ def spots_scroll_():
     req_dct['uid'] = request.args.get('uid')
     req_dct['from_page'] = request.args.get('from_page')
     req_dct['data'] = json.loads(request.args.get('data'))
-    res = spots_scroll(req)
+    res = spots_scroll(req_dct)
     return json.dumps(res)
 
 
