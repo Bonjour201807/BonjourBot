@@ -12,6 +12,7 @@ from bonjour.utils.common_utils import *
 from bonjour.agent.es_api import *
 from bonjour.utils.db_utils import redis_handle
 from bonjour.agent.external_api import TulinBot
+from bonjour.agent.search_api import Search
 import json
 
 intenter = Intent()
@@ -59,6 +60,7 @@ class Agent:
             loc = Amap.geocode(req['message']['departure'])
             if distance and loc:
                 redis_handle.set(req['uid']+':info', {'distance': distance, 'loc': loc})
+                # return search_tags(uid=req['uid'], loc=loc, distance=distance)
                 return search_tags(uid=req['uid'], loc=loc, distance=distance)
             else:
                 return None
@@ -68,7 +70,11 @@ class Agent:
             user_info = eval(redis_handle.get(req['uid']+':info'))
             tags = req['message']['select_tags'] + [req['message']['input_tag']]
             scroll_id = req.get('scroll_id')
-            return search_attractions(loc=user_info['loc'], distance=user_info['distance'], tags=tags, scroll_id=scroll_id)
+            # return search_attractions(loc=user_info['loc'], distance=user_info['distance'], tags=tags, scroll_id=scroll_id)
+            return Search.get_spots_by_loc_distance_tags(loc=user_info['loc'],
+                                                         distance=user_info['distance'],
+                                                         tags=tags,
+                                                         page=page)
 
         elif req['user_flag'] == 3 or req['user_flag'] == '3':
             pass
