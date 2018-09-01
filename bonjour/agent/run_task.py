@@ -14,7 +14,7 @@ class RunTask:
 
     def run(self, request):
         policy_result = self.policy_handle.policy(request)
-        logger.debug('plolicy_result,{}'.format(policy_result))
+        #logger.debug('plolicy_result,{}'.format(policy_result))
         if not policy_result:
             return None
 
@@ -38,3 +38,5 @@ class RunTask:
             reply['message']['start_time'] = slots['start_time']
             reply['message']['delta_time'] = slots['delta_time']
             return reply
+        else:
+            return None

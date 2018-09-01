@@ -54,4 +54,5 @@ class TulinBot:
 
 
 if __name__ == '__main__':
-    TulinBot.get_answer(uid='12345', text='上海')
+    print(TulinBot.get_answer(uid='12345', text='附近的酒店'))
+    print(TulinBot.get_answer(uid='12345', text='帮我找个杯子的图片'))

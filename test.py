@@ -22,10 +22,15 @@ from bonjour.agent.agent import Agent
 # print(res.json())
 
 agenter = Agent()
+print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': '红烧肉怎么做'}}))
 print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': '天气'}}))
 print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': '深圳'}}))
 print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': 'hahha'}}))
+print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': 'hahha'}}))
+print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': 'hahha'}}))
 print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': '明天'}}))
+print(agenter.response({'uid': 'azx111', 'user_flag': 0, 'message': {'query': '红烧肉怎么做'}}))
+
 # print(agenter.response({'uid': 'azx11', 'user_flag': 1, 'message': {'days': 1, 'departure': '深圳市'}}))
 # print(agenter.response({'uid': 'azx11', 'user_flag': 2, 'message': {'input_tags': ['古建筑','科技'], 'select_tags': ['大学']}}))
 # print(agenter.response({'uid': 'azx11', 'user_flag': 2, 'scroll_id': 10}))
