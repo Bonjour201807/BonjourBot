@@ -36,11 +36,15 @@ class TulinBot:
 
         if res['intent']['code'] in [10003, 10004, 10009, 10006, 10010, 10011, 10041, 10022,
                                      10030, 10031, 10032, 10033, 10034, 10019]:
-            ret = res['results'][0]['values']['text']
+            text = res['results'][0]['values']['text']
+            ret = {'flag': 0,
+                   'message': {'text': text}}
             return ret
 
         if res['intent']['code'] in [10014, 10005]:
-            ret = res['results'][1]['values']['text']+'\n'+res['results'][0]['values']['url']
+            text = res['results'][1]['values']['text']+'\n'+res['results'][0]['values']['url']
+            ret = {'flag': 0,
+                   'message': {'text': text}}
             return ret
 
         if res['intent']['code'] in [10015]:
@@ -50,7 +54,9 @@ class TulinBot:
                     'info: '+item['info']+'\n'+\
                     'detailurl: '+item['detailurl']
                 recipe += '\n\n'
-            ret = res['results'][0]['values']['text'] + '\n' + recipe
+            text = res['results'][0]['values']['text'] + '\n' + recipe
+            ret = {'flag': 0,
+                   'message': {'text': text}}
             return ret
 
 

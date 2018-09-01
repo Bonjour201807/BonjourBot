@@ -9,10 +9,11 @@ from bonjour.nlu.intent_detection.intent_detection import Intent
 from bonjour.utils import logger
 from bonjour.agent.amap_api import Amap
 from bonjour.utils.common_utils import *
-from bonjour.agent.es_api import *
+# from bonjour.agent.es_api import *
 from bonjour.utils.db_utils import redis_handle
 from bonjour.agent.external_api import TulinBot
 from bonjour.agent.search_api import Search
+# from bonjour.agent.search import spots_scroll, tags_scroll
 import json
 
 intenter = Intent()
@@ -52,29 +53,38 @@ class Agent:
                 redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 2}))
                 return ret
 
-            #logger.debug('angent.response,{}'.format(self._task_runner.run(req_dct)))
             return self._task_runner.run(req_dct)
 
         elif req['user_flag'] == 1 or req['user_flag'] == '1':
             distance = cvt_days(req['message']['days'])
             loc = Amap.geocode(req['message']['departure'])
+            size = req['size']
+            if isinstance(size, str):
+                size = int(size)
             if distance and loc:
-                redis_handle.set(req['uid']+':info', {'distance': distance, 'loc': loc})
-                # return search_tags(uid=req['uid'], loc=loc, distance=distance)
-                return search_tags(uid=req['uid'], loc=loc, distance=distance)
+                #redis_handle.set(req['uid']+':info', {'distance': distance, 'loc': loc})
+                res = Search.get_tags_by_loc_distance(loc=loc, distance=distance, size=size)
+                ret = {'flag': 2,
+                       'message': {'text': '您可能感兴趣的标签: ',
+                                  'data': res['data']}}
+                return ret
             else:
                 return None
 
         elif req['user_flag'] == 2 or req['user_flag'] == '2':
-            print(redis_handle.get(req['uid']+':info'))
-            user_info = eval(redis_handle.get(req['uid']+':info'))
+            # print(redis_handle.get(req['uid']+':info'))
+            # user_info = eval(redis_handle.get(req['uid']+':info'))
+            distance = cvt_days(req['message']['days'])
+            loc = Amap.geocode(req['message']['departure'])
             tags = req['message']['select_tags'] + [req['message']['input_tag']]
-            scroll_id = req.get('scroll_id')
-            # return search_attractions(loc=user_info['loc'], distance=user_info['distance'], tags=tags, scroll_id=scroll_id)
-            return Search.get_spots_by_loc_distance_tags(loc=user_info['loc'],
-                                                         distance=user_info['distance'],
-                                                         tags=tags,
-                                                         page=page)
+            size = req['size']
+            if isinstance(size, str):
+                size = int(size)
+
+            res = Search.get_spots_by_loc_distance_tags(loc=loc,distance=distance,tags=tags,size=size)
+            ret = {'flag': 3,
+                   'message': {'data': res['data']}}
+            return ret
 
         elif req['user_flag'] == 3 or req['user_flag'] == '3':
             pass
