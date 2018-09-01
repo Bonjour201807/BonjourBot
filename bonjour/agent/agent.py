@@ -35,6 +35,7 @@ class Agent:
             req_dct['query'] = query
             cly = self.dispatch(uid, query)
             print('get_cly',cly)
+            print('uid_query',uid,query)
             if cly == 1:
                 ret = self._task_runner.run(req_dct)
                 print('_task_runner:',ret)
@@ -43,14 +44,16 @@ class Agent:
                     redis_handle.lpush(uid+':query_history', json.dumps({'answer': ret, 'who': 1}))
                     return ret
                 else:
-                    ret = TulinBot.get_answer(uid, query)
+                    ret = TulinBot.get_answer(uid=uid, text=query)
                     redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
                     redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 2}))
+                    print('answer_by_tulin_1:',ret)
                     return ret
             elif cly == 2:
-                ret = TulinBot.get_answer(uid, query)
+                ret = TulinBot.get_answer(uid=uid, text=query)
                 redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
                 redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 2}))
+                print('answer_by_tulin:',ret)
                 return ret
 
             return self._task_runner.run(req_dct)
@@ -59,8 +62,6 @@ class Agent:
             distance = cvt_days(req['message']['days'])
             loc = Amap.geocode(req['message']['departure'])
             size = req['size']
-            if isinstance(size, str):
-                size = int(size)
             if distance and loc:
                 #redis_handle.set(req['uid']+':info', {'distance': distance, 'loc': loc})
                 res = Search.get_tags_by_loc_distance(loc=loc, distance=distance, size=size)
@@ -105,8 +106,9 @@ class Agent:
             return 1
         else:
             item = redis_handle.lpop(uid+':query_history')
-            item = json.loads(item)
+
             if item:
+                item = json.loads(item)
                 if item['who'] == 1 or item['who'] == '1':
                     return 1
                 else:
