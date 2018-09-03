@@ -26,6 +26,7 @@ class TulinBot:
 
     @classmethod
     def get_answer(cls, uid=None, text=None):
+
         if not uid or not text:
             return None
 
