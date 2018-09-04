@@ -3,7 +3,7 @@
 @Time: 2018/8/28 下午3:59
 @Software: PyCharm
 """
-from bonjour.utils.db_utils import redis_handle
+from bonjour.utils.db_helper import redis_handle
 from elasticsearch import Elasticsearch
 
 ES = Elasticsearch()
