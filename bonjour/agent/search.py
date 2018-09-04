@@ -5,8 +5,8 @@
 """
 
 from bonjour.agent.search_api import Search
-from bonjour.utils.db_utils import redis_handle
-from bonjour.utils.common_utils import cvt_days
+from bonjour.utils.db_helper import redis_handle
+from bonjour.utils.utils import cvt_days
 from bonjour.agent.amap_api import Amap
 
 

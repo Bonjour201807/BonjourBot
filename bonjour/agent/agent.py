@@ -10,8 +10,8 @@ from bonjour.agent.external_api import TulinBot
 from bonjour.agent.run_task import RunTask
 from bonjour.agent.search_api import Search
 from bonjour.nlu.intent_detection.intent_detection import Intent
-from bonjour.utils.common_utils import *
-from bonjour.utils.db_utils import redis_handle
+from bonjour.utils.utils import *
+from bonjour.utils.db_helper import redis_handle
 
 intenter = Intent()
 
