@@ -4,26 +4,30 @@
 @Software: PyCharm
 """
 
-import yaml
 import re
+import os
+import yaml
+
+from bonjour.utils import Singleton
 
 
-class Intent:
-    def __init__(self, intent_path='./data/intent/intent.yaml'):
-        #临时方案
-        self.rule_intent_map = {}
+class Intent(Singleton):
+
+    def __init__(self):
+        # 临时方案,有数据情况下训练分类器
+        self.rule2intent = {}
+        intent_path = os.path.dirname(__file__) + '/intent.yaml'
         with open(intent_path, encoding='utf8') as f:
             intent_dict = yaml.load(f)
-            #print('intent_dict：', intent_dict)
             intent_keys = intent_dict['intent'].keys()
             for intent in intent_keys:
                 for rule_expr in intent_dict['intent'][intent]:
-                    self.rule_intent_map[re.compile(rule_expr)] = intent
+                    self.rule2intent[re.compile(rule_expr)] = intent
 
     def intent_recognition(self, query):
-        #临时方案
+        # 临时方案
         intent_map = {'intent': ''}
-        for rule_expr, intent_word in self.rule_intent_map.items():
+        for rule_expr, intent_word in self.rule2intent.items():
             if rule_expr.search(query):
                 intent_map['intent'] = intent_word
                 return intent_map
@@ -31,7 +35,8 @@ class Intent:
 
 
 if __name__ == '__main__':
-    import sys
-    sys.path.append('/Users/dy/Desktop/back/InfoR/bonjour')
-    intent_haddle = Intent('/Users/dy/Desktop/back/InfoR/bonjour/data/intent/intent.yaml')
-    print(intent_haddle.intent_recognition('我想出去玩'))
+    Intent1 = Intent
+    Intent2 = Intent
+    print(Intent1.intent_recognition('我想出去玩'))
+    print(id(Intent1))
+    print(id(Intent2))

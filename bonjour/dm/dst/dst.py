@@ -4,11 +4,12 @@
 @Software: PyCharm
 """
 
-import redis
 import json
-
 from collections import defaultdict
-from bonjour.nlu.nlu import NLU
+
+import redis
+
+from bonjour.nlu import NLU
 
 pool = redis.ConnectionPool(host='localhost', port=6379, decode_responses=True)
 redis_handle = redis.Redis(connection_pool=pool)

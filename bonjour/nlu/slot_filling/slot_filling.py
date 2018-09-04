@@ -1,10 +1,9 @@
-# from bonjour.parser.jner import JNER
-from bonjour.parser.ltp_client import LTP
-from bonjour.parser.time_extract import TimeExtract
+from bonjour.utils import Singleton
+from bonjour.parser import LTP, TimeExtract
 
 
-class SlotFilling:
-    def __init__(self, ltp_data_path='./data/ltp/ltp_data_v3.4.0'):
+class SlotFilling(Singleton):
+    def __init__(self):
         self._ltp_handle = LTP()
         self._time_extract = TimeExtract()
 
@@ -28,5 +27,5 @@ class SlotFilling:
 
 
 if __name__ == '__main__':
-    slot_fill = SlotFilling(ltp_data_path='/Users/dy/Desktop/back/InfoR/bonjour/data/ltp/ltp_data_v3.4.0')
+    slot_fill = SlotFilling()
     print(slot_fill.slot_extract('我想问下明后中午12点天龙岗的天气？'))

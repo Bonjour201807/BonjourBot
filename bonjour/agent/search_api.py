@@ -21,7 +21,7 @@ class Search:
                    'from_page': page,
                    'size': size}
         res = requests.get(url, params=payload)
-        print(res.json())
+        return res.json()
 
     @classmethod
     def get_tags_by_loc_distance(cls,
@@ -34,8 +34,9 @@ class Search:
                    'distance': distance,
                    'from_page': page,
                    'size': size}
+        print(payload)
         res = requests.get(url, params=payload)
-        print(res.json())
+        return res.json()
 
     @classmethod
     def get_tags_by_loc_distance_range(cls,
@@ -51,7 +52,7 @@ class Search:
                    'from_page': page,
                    'size': size}
         res = requests.get(url, params=payload)
-        print(res.json())
+        return res.json()
 
     @classmethod
     def get_spots_by_loc_distance_tags(cls,
@@ -67,7 +68,7 @@ class Search:
                    'size': size,
                    'tags': json.dumps(tags)}
         res = requests.get(url, params=payload)
-        print(res.json())
+        return res.json()
 
 
     @classmethod

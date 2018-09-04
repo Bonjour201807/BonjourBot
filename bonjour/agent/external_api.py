@@ -34,6 +34,7 @@ class TulinBot:
         cls.req['userInfo']['userId'] = uid
 
         res = requests.post(cls.url, data=json.dumps(cls.req)).json()
+        print(res)
 
         if res['intent']['code'] in [10003, 10004, 10009, 10006, 10010, 10011, 10041, 10022,
                                      10030, 10031, 10032, 10033, 10034, 10019]:
