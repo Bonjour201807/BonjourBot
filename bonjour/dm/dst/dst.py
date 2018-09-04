@@ -3,16 +3,11 @@
 @Time: 2018/8/4 下午5:27
 @Software: PyCharm
 """
-
 import json
 from collections import defaultdict
 
-import redis
-
 from bonjour.nlu import NLU
-
-pool = redis.ConnectionPool(host='localhost', port=6379, decode_responses=True)
-redis_handle = redis.Redis(connection_pool=pool)
+from bonjour.utils.db_helper import redis_handle
 
 
 class DST:
