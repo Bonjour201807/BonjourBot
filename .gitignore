@@ -4,4 +4,4 @@ __pycache__
 *.py[cod]
 tmp
 logs
-tmp*.py[c]
+tmp*.py
