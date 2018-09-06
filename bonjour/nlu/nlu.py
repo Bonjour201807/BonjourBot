@@ -13,13 +13,16 @@ class NLU:
         self.intent_handle = Intent()
         self.slot_fill_handle = SlotFilling()
 
-    def nlu(self, query: str) -> dict:
+    def parse(self, query: str) -> dict:
         intent = self.intent_handle.intent_recognition(query)
         slot_value = self.slot_fill_handle.slot_extract(query)
 
+        # type==0表示从文本抽取， type==1表示从前端表单获取
         return {**intent, **slot_value}
 
 
 if __name__ == '__main__':
     nlu_handle = NLU()
-    print(nlu_handle.nlu('帮我查下南山区的天气'))
+    print(nlu_handle.nlu('nihao'))
+    print(1 if nlu_handle.nlu('nihao')['intent'] else 0)
+    print(1 if nlu_handle.nlu('nihao')['slot'] else 0)

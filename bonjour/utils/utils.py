@@ -32,3 +32,19 @@ class Singleton(object):
         if not hasattr(cls, '_instance'):
             cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
         return cls._instance
+
+
+def has_none(dct):
+    """
+    检查一个字典是否有value为None
+    :param dct:
+    :return:
+    """
+    none_keys = []
+    for k, v in dct.items():
+        if (not v) or v == 'None':
+            none_keys.append(k)
+    if none_keys:
+        return none_keys
+    else:
+        return None

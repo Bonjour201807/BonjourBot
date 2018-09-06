@@ -27,30 +27,29 @@ class Agent:
         """
         if req['user_flag'] == 0 or req['user_flag'] == '0':
             req_dct = dict()
-            query = req['message']['query']
             uid = req['uid']
-            req_dct['uid'] = uid
+            query = req['message']['query']
+            req_dct['uid'] = req['uid']
             req_dct['query'] = query
+            req_dct['type'] = 0
             cly = self.dispatch(uid, query)
+            print('{}--cly:{}'.format(query,cly))
 
             if cly == 1:
-                ret = self._task_runner.run(req_dct)
-                #print('_task_runner:', ret)
+                ret = self._task_runner.process(req_dct)
                 if ret:
-                    redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
-                    redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 1}))
+                    redis_handle.lpush(uid + '.query_history', json.dumps({'query': query, 'who': 0}))
+                    redis_handle.lpush(uid + '.query_history', json.dumps({'answer': ret, 'who': 1}))
                     return ret
                 else:
                     ret = TulinBot.get_answer(uid=uid, text=query)
-                    redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
-                    redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 2}))
-                    #print('answer_by_tulin_1:', ret)
+                    redis_handle.lpush(uid + '.query_history', json.dumps({'query': query, 'who': 0}))
+                    redis_handle.lpush(uid + '.query_history', json.dumps({'answer': ret, 'who': 2}))
                     return ret
             elif cly == 2:
                 ret = TulinBot.get_answer(uid=uid, text=query)
-                redis_handle.lpush(uid + ':query_history', json.dumps({'query': query, 'who': 0}))
-                redis_handle.lpush(uid + ':query_history', json.dumps({'answer': ret, 'who': 2}))
-                #print('answer_by_tulin:', ret)
+                redis_handle.lpush(uid + '.query_history', json.dumps({'query': query, 'who': 0}))
+                redis_handle.lpush(uid + '.query_history', json.dumps({'answer': ret, 'who': 2}))
                 return ret
             return TulinBot.get_answer(uid=uid, text=query)
 
@@ -101,7 +100,7 @@ class Agent:
         if intent in ['weather', 'play']:
             return 1
         else:
-            item = redis_handle.lpop(uid + ':query_history')
+            item = redis_handle.lpop(uid + '.query_history')
 
             if item:
                 item = json.loads(item)

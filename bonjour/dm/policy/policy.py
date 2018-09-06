@@ -7,8 +7,8 @@
 import json
 import random
 
-from bonjour.utils import redis_handle
-from bonjour.dm.dst.dst import DST
+from bonjour.utils import redis_handle, has_none
+from bonjour.dm.dst import DST
 
 
 class Policy:
@@ -30,17 +30,23 @@ class Policy:
             ]
         }
 
-    def policy(self, request):
-        self.dst_handle.dst(request)
-        uid = request['uid']
-        uid_slot = '{}:slot'.format(uid)
-        uid_intent = '{}:intent'.format(uid)
+    def process(self, uid_intent_slot_dct):
+        '''
 
-        for item in redis_handle.lrange(uid_intent, 0, -1):
+        :param uid_intent_slot_dct: 必须包含字段：uid, slot, intent
+        :return:
+        '''
+
+        self.dst_handle.track(uid_intent_slot_dct)
+        uid = uid_intent_slot_dct['uid']
+        uid_slot = '{}.slot'.format(uid)
+        uid_intent = '{}.intent'.format(uid)
+
+        for item in redis_handle.lrange(uid_intent, 0, 10):
             item = json.loads(item)
-            print('policy_item: ', item)
+            #print('policy_item: ', item)
             if item['state'] == 1:
-                is_has_none = self._has_none(item['slot'])
+                is_has_none = has_none(item['slot'])
                 # print('is_has_none...', is_has_none)
                 if not is_has_none:
                     return {'answer': item,
@@ -61,17 +67,13 @@ class Policy:
 
         return None
 
-    def _has_none(self, dct):
-        """
-        检查一个字典是否有value为None
-        :param dct:
-        :return:
-        """
-        none_keys = []
-        for k, v in dct.items():
-            if (not v) or v == 'None':
-                none_keys.append(k)
-        if none_keys:
-            return none_keys
-        else:
-            return None
+
+if __name__ == '__main__':
+    plicyer = Policy()
+    uid = '0001'
+    print(plicyer.process({'uid': uid, 'intent': 'weather','slot':{}}))
+    print(plicyer.process({'uid': uid, 'intent': '', 'slot': {'asd':'深圳','asdf':123}}))
+    print(plicyer.process({'uid': uid, 'intent': '', 'slot': {}}))
+    print(plicyer.process({'uid': uid, 'intent': '', 'slot': {'start_time':'明天','delta_time':'as'}}))
+
+

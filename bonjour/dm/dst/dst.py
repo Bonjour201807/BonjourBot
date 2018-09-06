@@ -4,9 +4,8 @@
 @Software: PyCharm
 """
 import json
-from collections import defaultdict
 
-from bonjour.nlu import NLU
+from collections import defaultdict
 from bonjour.utils.db_helper import redis_handle
 
 
@@ -15,15 +14,14 @@ class DST:
     all_intent = {'weather':
                       {'intent': 'weather',
                        'slot': {'LOC':None, 'start_time': None, 'delta_time':None},
-                       'state': 0},
+                       'state': 1},
                   'test_intent':
                       {'intent': 'test_intent',
                        'slot': {'slot1': None, 'slot2': None},
-                       'state': 0}
+                       'state': 1}
                   }
 
     def __init__(self):
-        self.nlu_handle = NLU()
         self.slot_intent_map = self._slot_to_intent_map()
 
     def _slot_to_intent_map(self):
@@ -33,75 +31,66 @@ class DST:
                 slot2intent[slot].append(intent)
         return slot2intent
 
-    def dst(self, request):
+    def track(self, uid_intent_slot_dct):
         """
         对话状态追踪
-        :param request:
+        :param uid_intent_slot_dct:必须包含字段：uid, slot, intent
         :return:
         """
-        intent_slot = self.nlu_handle.nlu(request['query'])
-        print('intent_slot...', intent_slot)
-        uid = request['uid']
-        uid_slot = '{}:slot'.format(uid)
-        uid_intent = '{}:intent'.format(uid)
+        uid = uid_intent_slot_dct['uid']
+        slot_dct = uid_intent_slot_dct['slot']
+        intent = uid_intent_slot_dct['intent']
 
-        last_slots = redis_handle.lindex(uid_slot, 0)
-        if last_slots:
-            last_slots = json.loads(last_slots)
-            last_slots.update(intent_slot['slot'])
-        else:
-            last_slots = intent_slot['slot']
+        uid_slot = '{}.slot'.format(uid)
+        uid_intent = '{}.intent'.format(uid)
 
-        latest_slots = last_slots  #单纯为了可读性
-        redis_handle.lpush(uid_slot, json.dumps(latest_slots))
+        if intent:
+            if intent not in self.all_intent:
+                raise KeyError('识别意图-{}-不再意图集合-{}-范围内，请重新检查'.format(intent, self.all_intent))
+            last_slot = json.loads(redis_handle.get(uid_slot)) if redis_handle.get(uid_slot) else {}
+            intent_dct = self.all_intent[intent]
+            if last_slot:
+                for k in list(intent_dct['slot'].keys()):
+                    if k in last_slot:
+                        intent_dct['slot'][k] = last_slot[k]
+            redis_handle.lpush(uid_intent, json.dumps(intent_dct))
 
-        if intent_slot['intent']:
-            redis_handle.lpush(uid_intent, json.dumps(self.all_intent[intent_slot['intent']]))
-
-        new_added_slot = list(intent_slot['slot'].keys())
-
-        is_any_change = 0
-        for i, item in enumerate(redis_handle.lrange(uid_intent, 0, -1)):
-            print('load item',i,item)
-            item = json.loads(item)
-            flag = 0
-            for k in list(item['slot'].keys()):
-                if k in new_added_slot:
-                    item['slot'][k] = intent_slot['slot'][k]
-                    flag = 1
-
-            if flag == 1 or item['intent'] == intent_slot['intent']:
-                item['state'] = 1
-                redis_handle.lset(uid_intent, i, json.dumps(item))
-                is_any_change += 1
+        if slot_dct:
+            last_slot = redis_handle.get(uid_slot)
+            if last_slot:
+                last_slot = json.loads(last_slot)
+                last_slot.update(slot_dct)
             else:
-                item['state'] = 0
-                redis_handle.lset(uid_intent, i, json.dumps(item))
-        print('is_any_change: ',is_any_change)
-        if is_any_change == 0:
+                last_slot = slot_dct
+            latest_slot = last_slot  #单纯为了可读性
+
+            #40秒过期？
+            redis_handle.set(uid_slot, json.dumps(latest_slot), ex=40)
+
+            new_added_slot = list(slot_dct.keys())
+
             for i, item in enumerate(redis_handle.lrange(uid_intent, 0, -1)):
                 item = json.loads(item)
-                if self._has_none(item['slot']):
+                flag = 0
+                for k in list(item['slot'].keys()):
+                    if k in new_added_slot:
+                        item['slot'][k] = slot_dct[k]
+                        flag = 1
+
+                if flag == 1 or item['intent'] == intent:
                     item['state'] = 1
                     redis_handle.lset(uid_intent, i, json.dumps(item))
-                    break
                 else:
-                    continue
+                    item['state'] = 0
+                    redis_handle.lset(uid_intent, i, json.dumps(item))
 
-    def _has_none(self, dct):
-        """
-        检查一个字典是否有value为None
-        :param dct:
-        :return:
-        """
-        none_keys = []
-        for k, v in dct.items():
-            if (not v) or v == 'None':
-                none_keys.append(k)
-        if none_keys:
-            return none_keys
         else:
-            return None
+            for i, item in enumerate(redis_handle.lrange(uid_intent, 0, -1)):
+                item = json.loads(item)
 
-
-
+                if item['intent'] == intent:
+                    item['state'] = 1
+                    redis_handle.lset(uid_intent, i, json.dumps(item))
+                else:
+                    item['state'] = 0
+                    redis_handle.lset(uid_intent, i, json.dumps(item))
